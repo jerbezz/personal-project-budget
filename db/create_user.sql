@@ -1,4 +1,4 @@
-insert into user
+insert into users
 (
     user_first_name,
     user_last_name,

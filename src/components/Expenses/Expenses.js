@@ -9,6 +9,7 @@ class Expenses extends Component{
         return(
             <div>
                 Expenses
+                <button>Logout</button>
             </div>
         )
     }

@@ -1,47 +1,25 @@
-CREATE TABLE "user" (
-	"user_id" serial NOT NULL,
-	"user_first_name" varchar(100) NOT NULL,
-	"user_last_name" varchar(100) NOT NULL,
-	"user_email" varchar(150) NOT NULL,
-	"user_hash" TEXT NOT NULL,
-	CONSTRAINT user_pk PRIMARY KEY ("user_id")
-) WITH (
-  OIDS=FALSE
+create table users (
+	user_id serial primary key,
+	user_first_name varchar(150) not null,
+	user_last_name varchar(150) not null,
+	user_email varchar(200) not null,
+	user_hash text not null
 );
 
-
-
-CREATE TABLE "expenses" (
-	"exp_id" serial NOT NULL,
-	"exp_user_id" integer NOT NULL,
-	"exp_category" varchar(50) NOT NULL,
-	"exp_date" TIMESTAMP NOT NULL,
-	"exp_name" varchar(100) NOT NULL,
-	"exp_amount" DECIMAL NOT NULL,
-	"exp_memo" varchar(100),
-	CONSTRAINT expenses_pk PRIMARY KEY ("exp_id")
-) WITH (
-  OIDS=FALSE
+create table expenses (
+	exp_id serial primary key,
+	exp_user_id integer references users(user_id),
+	exp_category varchar(50) not null,
+	exp_date timestamp not null,
+	exp_name varchar(100) not null,
+	exp_amount decimal not null,
+	exp_memo varchar(100)
 );
 
-
-
-CREATE TABLE "budget" (
-	"budget_id" serial NOT NULL,
-	"budget_user_id" integer NOT NULL,
-	"budget_income" DECIMAL,
-	"budget_expenses" DECIMAL,
-	CONSTRAINT budget_pk PRIMARY KEY ("budget_id")
-) WITH (
-  OIDS=FALSE
+create table budget (
+	budget_id serial primary key,
+	budget_user_id integer references users(user_id),
+	budget_income decimal,
+	budget_expenses decimal
 );
-
-
-
-
-ALTER TABLE "expenses" ADD CONSTRAINT "expenses_fk0" FOREIGN KEY ("exp_user_id") REFERENCES "user"("user_id");
-
-ALTER TABLE "budget" ADD CONSTRAINT "budget_fk0" FOREIGN KEY ("budget_user_id") REFERENCES "user"("user_id");
-
-
 

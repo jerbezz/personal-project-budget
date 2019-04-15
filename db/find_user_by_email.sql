@@ -1,3 +1,3 @@
 select *
-from user
+from users
 where user_email = $1;
