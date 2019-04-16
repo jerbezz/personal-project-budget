@@ -32,6 +32,7 @@ module.exports = {
         req.session.user = {firstName: userAcc[0].user_first_name, lastName: userAcc[0].user_last_name, email: userAcc[0].user_email, id: userAcc[0].user_id}
         res.status(200).send({
             message: 'log in successful',
+            userData: req.session.user,
             loggedIn: true
         })
     },
@@ -41,6 +42,6 @@ module.exports = {
     },
     userData: (req, res) => {
         if(req.session.user) res.status(200).send(req.session.user)
-      else res.status(401).send({});
+      else res.status(401).send('please log in');
     }
 }

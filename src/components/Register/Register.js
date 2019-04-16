@@ -19,7 +19,7 @@ class Register extends Component{
         const { firstName, lastName, email, password } = this.state;
         const res = await axios.post('/auth/register', { firstName, lastName, email, password })
         if (res.data.loggedIn) this.props.history.push('/expenses')
-        else alert('Registration failed')
+        else alert(res.data.message)
       }
 
     render(){

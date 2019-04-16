@@ -2,12 +2,19 @@ import axios from 'axios'
 
 
 const initialState = {
-    user: {}
+    user: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        id: ''
+
+    }
 }
 
 const GET_DATA = 'GET_DATA'
 
 export function getData(){
+    
     let data = axios.get('/auth/user-data').then( res => res.data)
     return{
         type: GET_DATA,
@@ -18,6 +25,7 @@ export function getData(){
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case GET_DATA + '_FULFILLED':
+            console.log(action.payload)
             return {user: action.payload}
 
         default:

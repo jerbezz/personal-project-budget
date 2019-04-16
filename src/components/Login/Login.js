@@ -18,7 +18,7 @@ class Login extends Component{
         if (res.data.loggedIn) this.props.history.push('/expenses')
 
         else alert(res.data.message)
-        console.log(res)
+        // console.log(res)
       }
 
     render(){

@@ -39,5 +39,6 @@ app.get('/auth/user-data', authCtrl.userData)
 
 //expense controllers
 app.post('/api/expenses', expenseCtrl.addExpense)
+app.get('/api/expenses', expenseCtrl.getAllExpByUser)
 
 
