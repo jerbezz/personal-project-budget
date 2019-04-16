@@ -34,5 +34,13 @@ module.exports = {
             message: 'log in successful',
             loggedIn: true
         })
+    },
+    logout: (req, res) => {
+        req.session.destroy()
+        res.redirect('http://localhost:3000/#/')
+    },
+    userData: (req, res) => {
+        if(req.session.user) res.status(200).send(req.session.user)
+      else res.status(401).send({});
     }
 }

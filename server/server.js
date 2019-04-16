@@ -34,6 +34,10 @@ app.use(session({
 //auth register and login Controllers
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
-app.get('/logout')
+app.get('/logout', authCtrl.logout)
+app.get('/auth/user-data', authCtrl.userData)
+
+//expense controllers
+app.post('/api/expenses', expenseCtrl.addExpense)
 
 

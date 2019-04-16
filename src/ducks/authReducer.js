@@ -2,18 +2,13 @@ import axios from 'axios'
 
 
 const initialState = {
-    exp_user_id: '',
-    category: '',
-    date: '',
-    name: '',
-    amount: '',
-    memo: ''
+    user: {}
 }
 
-const CREATE_EXP = 'CREATE_EXP'
+const GET_DATA = 'GET_DATA'
 
-export function createExp(){
-    let data = axios.get('/api/expenses').then( res => res.data)
+export function getData(){
+    let data = axios.get('/auth/user-data').then( res => res.data)
     return{
         type: GET_DATA,
         payload: data

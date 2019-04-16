@@ -1,14 +1,17 @@
 import React,{Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class Reports extends Component{
-    constructor(){
-        super()
-    }
+   
 
     render(){
         return(
             <div>
-                Reports
+                <div className='nav-items'>
+                <Link to='/expenses'>Expenses</Link>
+                <Link to='/budget'>Budget</Link>
+                <Link to='/reports'>Reports</Link>
+                </div>
             </div>
         )
     }

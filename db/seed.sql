@@ -10,7 +10,7 @@ create table expenses (
 	exp_id serial primary key,
 	exp_user_id integer references users(user_id),
 	exp_category varchar(50) not null,
-	exp_date timestamp not null,
+	exp_date date not null,
 	exp_name varchar(100) not null,
 	exp_amount decimal not null,
 	exp_memo varchar(100)
