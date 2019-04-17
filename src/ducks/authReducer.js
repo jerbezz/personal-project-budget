@@ -25,8 +25,8 @@ export function getData(){
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case GET_DATA + '_FULFILLED':
-            console.log(action.payload)
-            return {user: action.payload}
+        console.log(action.payload)
+        return {...state, user: action.payload}
 
         default:
             return state;
