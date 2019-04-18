@@ -1,9 +1,10 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
-import {createExp, getExpByUser, deleteExp} from './../../ducks/expReducer'
+import {createExp, getExpByUser, deleteExp, updateExp} from './../../ducks/expReducer'
 import {getData} from './../../ducks/authReducer'
 import {connect} from 'react-redux'
 import Expense from './../Expense/Expense'
+import './Expenses.css'
 
 class Expenses extends Component{
     constructor(){
@@ -25,15 +26,20 @@ class Expenses extends Component{
         this.props.getExpByUser()
     }
     
-    createNewExp = () => {
+    createNewExp = async () => {
         let {category, date, name, amount, memo} = this.state
-        this.props.createExp(category, date, name, amount, memo)
+        await this.props.createExp(category, date, name, amount, memo)
+        await this.props.getExpByUser()
+    }
+    
+    deleteAnExp = (id) => {
+        this.props.deleteExp(id)
     }
 
-    deleteAnExp = () => {
-        this.props.deleteExp()
+    editAnExp = (id, {category, date, name, amount, memo}) => {
+        this.props.updateExp(id, {category, date, name, amount, memo})
     }
-
+    
     
     
     handleChange = e => {
@@ -46,17 +52,18 @@ class Expenses extends Component{
     handleClick = () => {
         this.createNewExp()
         this.setState({
-         category: '',
-         date: '',
-         name: '',
-         amount: '',
-         memo: ''
+            category: '',
+            date: '',
+            name: '',
+            amount: '',
+            memo: ''
         })
     }
     
     render(){
-        // console.log(this.props)
+        // console.log(98876, this.props)
         // console.log(1111, this.props.expense.expenses)
+        // console.log(9999999, this.props.expense)
         return(
             <div>
                 <nav className='nav-items'>
@@ -72,12 +79,15 @@ class Expenses extends Component{
                     Memo: <input name='memo' value={this.state.memo} onChange={this.handleChange}></input>
                     <button onClick={this.createNewExp}>Add Expense</button>
                 </div>
+                <div className='map-border-box'>
                 {this.props.expense.expenses.map((item, i) => {
                     return <Expense 
                     key={item.exp_id} expense={item} 
                     deleteAnExp={this.deleteAnExp}
+                    editAnExp={this.editAnExp}
                      />
                 })}
+                </div>
                 
                 
             </div>
@@ -86,4 +96,4 @@ class Expenses extends Component{
 }
 
 const mapState = (reduxState) => reduxState
-export default connect(mapState, {getData, createExp, getExpByUser, deleteExp})(Expenses)
+export default connect(mapState, {getData, createExp, getExpByUser, deleteExp, updateExp})(Expenses)

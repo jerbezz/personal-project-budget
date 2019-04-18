@@ -12,4 +12,7 @@ insert into expenses (
     $4,
     $5,
     $6
-)
+);
+select *
+from expenses
+where exp_user_id = $7;

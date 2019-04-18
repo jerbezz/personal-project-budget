@@ -13,9 +13,9 @@ class Home extends Component{
                 <div className='better-work'>
                 <div className='box-for-three-info'>
                     <div className='three-info-boxes'>
-                        <div className='info-box'><i class="fas fa-file-invoice-dollar"></i> Track Expenses</div>
-                        <div className='info-box'><i class="fas fa-balance-scale"></i> Budget Smart</div>
-                        <div className='info-box'><i class="far fa-chart-bar"></i> Reports</div>
+                        <div className='info-box'><i className="fas fa-file-invoice-dollar"></i> Track Expenses</div>
+                        <div className='info-box'><i className="fas fa-balance-scale"></i> Budget Smart</div>
+                        <div className='info-box'><i className="far fa-chart-bar"></i> Reports</div>
                     </div>
                 </div>
                 </div>
