@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './Expense.css'
 // import { connect } from 'react-redux'
 // import {deleteExp} from './../../ducks/expReducer'
 
-class Expense extends Component{
-    constructor (props) {
+class Expense extends Component {
+    constructor(props) {
         super(props)
         this.state = {
             id: this.props.expense.exp_id,
@@ -23,7 +23,7 @@ class Expense extends Component{
             [name]: value
         })
     }
-    
+
     handleDelete = () => {
         this.props.deleteAnExp(this.props.expense.exp_id)
     }
@@ -40,37 +40,51 @@ class Expense extends Component{
 
     handleUpdateClick = () => {
         this.props.editAnExp()
+        this.setState({
+            edit: false
+        })
     }
 
-    render (){
+    render() {
         // console.log(22222, this.props.expense)
-    return (
-
-        <div className='exp-border-box'>
-
-            <div className='each-exp'>
-                <div className='exp-info'>
-                    <p>{this.props.expense.exp_date}</p>
+        return this.state.edit ? (
+            <div>
+                <div>
+                    <input name='date' value={this.state.date} onChange={this.handleChange} />
+                    <input name='category' value={this.state.category} onChange={this.handleChange} />
+                    <input name='name' value={this.state.name} onChange={this.handleChange} />
+                    <input name='amount' value={this.state.amount} onChange={this.handleChange} />
+                    <input name='memo' value={this.state.memo} onChange={this.handleChange} />
                 </div>
-                <div className='exp-info'>
-                    <p>{this.props.expense.exp_category}</p>
-                </div>
-                <div className='exp-info'>
-                    <p>{this.props.expense.exp_name}</p>
-                </div>
-                <div className='exp-info'>
-                    <p>{this.props.expense.exp_amount}</p>
-                </div>
-                <div className='exp-info'>
-                    <p>{this.props.expense.exp_memo}</p>
-                </div>
-                <button onClick={this.handleDelete}>X</button>
-                <button>Edit</button>
-
+                <button onClick={this.handleUpdateClick}>Confirm</button>
             </div>
-        </div>
-    )
-}
+        ) : (
+
+                <div className='exp-border-box'>
+
+                    <div className='each-exp'>
+                        <div className='exp-info'>
+                            <p>{this.props.expense.exp_date}</p>
+                        </div>
+                        <div className='exp-info'>
+                            <p>{this.props.expense.exp_category}</p>
+                        </div>
+                        <div className='exp-info'>
+                            <p>{this.props.expense.exp_name}</p>
+                        </div>
+                        <div className='exp-info'>
+                            <p>{this.props.expense.exp_amount}</p>
+                        </div>
+                        <div className='exp-info'>
+                            <p>{this.props.expense.exp_memo}</p>
+                        </div>
+                        <button onClick={this.handleDelete}>X</button>
+                        <button onClick={this.handleEditClick}>Edit</button>
+
+                    </div>
+                </div>
+            )
+    }
 }
 export default Expense
 // const mapState = (reduxState) => reduxState

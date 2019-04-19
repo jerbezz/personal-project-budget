@@ -3,5 +3,47 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
 
+.login-big-box {
+	background: white;
+	height: 200px;
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	align-content: flex-start;
+	border-radius: 20px;
+}
+
+.login-left-side {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-left: 30px;
+}
+
+.login-right-side {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-right: 30px;
+}
+
+.login-left-email-box {
+	margin-bottom: 10px;
+}
+
+.login-right-email-box {
+	margin-bottom: 10px;
+}
+
+.login-button {
+	height: 50px;
+	width: 120px;
+	border-radius: 10px;
+	background: mediumaquamarine;
+	color: white;
+	font-size: 20px;
 }

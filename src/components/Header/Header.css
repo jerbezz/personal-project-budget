@@ -1,8 +1,30 @@
 header {
-    background: black;
+    background: mediumaquamarine;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
     color: white;
     height: 100px;
   }
+
+  .header-left {
+    margin-left: 20px;
+    text-shadow: 5px 5px 5px gray
+    
+  }
+
+  .header-mid {
+    font-size: 55px;
+    text-shadow: 4px 4px 4px  gray;
+
+  }
+
+  .header-right {
+    margin-right: 20px;
+  }
+
+  .fa-money-bill-wave {
+    color: white
+  }
+

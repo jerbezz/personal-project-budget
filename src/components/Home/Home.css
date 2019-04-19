@@ -12,6 +12,7 @@
 
 .better-work {
     display: flex;
+    justify-content: center;
 }
 
 .box-for-three-info {
@@ -26,8 +27,8 @@
 }
 
 .three-info-boxes {
-    background: red;
-    width: 70%;
+    background: white;
+    width: 85%;
     height: 250px;
     display: flex;
 	flex-direction: row;
@@ -36,10 +37,24 @@
 }
 
 .info-box{
-    background: green;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 200px;
-    width: 280px;
+    width: 300px;
     text-align: center;
-    border-top: 5px solid mediumturquoise;
-    border-radius: 10px
+    border-top: 8px solid mediumturquoise;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 8px gray
+}
+
+.home-h4 {
+    font-weight: 300;
+}
+
+.fas fa-file-invoice-dollar{
+    height: 100px !important;
+    font-size: 100px;
 }
