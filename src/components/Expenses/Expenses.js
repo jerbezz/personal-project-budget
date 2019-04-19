@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
-import {createExp, getExpByUser, deleteExp, updateExp} from './../../ducks/expReducer'
+import {createExp, getExpByUser} from './../../ducks/expReducer'
 import {getData} from './../../ducks/authReducer'
 import {connect} from 'react-redux'
 import Expense from './../Expense/Expense'
@@ -25,23 +25,15 @@ class Expenses extends Component{
         this.props.getData()
         this.props.getExpByUser()
     }
+
+
     
     createNewExp = async () => {
         let {category, date, name, amount, memo} = this.state
         await this.props.createExp(category, date, name, amount, memo)
         await this.props.getExpByUser()
     }
-    
-    deleteAnExp = (id) => {
-        this.props.deleteExp(id)
-    }
-
-    editAnExp = (id, {category, date, name, amount, memo}) => {
-        this.props.updateExp(id, {category, date, name, amount, memo})
-    }
-    
-    
-    
+        
     handleChange = e => {
         let { name, value } = e.target
         this.setState({
@@ -61,6 +53,7 @@ class Expenses extends Component{
     }
     
     render(){
+        console.log('goodness payton', this.state)
         // console.log(98876, this.props)
         // console.log(1111, this.props.expense.expenses)
         // console.log(9999999, this.props.expense)
@@ -82,8 +75,7 @@ class Expenses extends Component{
                 <div className='map-border-box'>
                 {this.props.expense.expenses.map((item, i) => {
                     return <Expense 
-                    key={item.exp_id} expense={item} 
-                    deleteAnExp={this.deleteAnExp}
+                    key={item.exp_id} index={i} expense={item} name={item.exp_name}
                     editAnExp={this.editAnExp}
                      />
                 })}
@@ -96,4 +88,4 @@ class Expenses extends Component{
 }
 
 const mapState = (reduxState) => reduxState
-export default connect(mapState, {getData, createExp, getExpByUser, deleteExp, updateExp})(Expenses)
+export default connect(mapState, {getData, createExp, getExpByUser})(Expenses)

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { bindActionCreators } from '../../../../../Library/Caches/typescript/3.4.3/node_modules/redux';
 
 
 const initialState = {
@@ -7,7 +8,8 @@ const initialState = {
     name: '',
     amount: '',
     memo: '',
-    expenses: []
+    expenses: [],
+    updated: false
 }
 
 const CREATE_EXP = 'CREATE_EXP'
@@ -43,7 +45,7 @@ export function deleteExp(id) {
 }
 
 export function updateExp(id, category, date, name, amount, memo) {
-    let data = axios.put(`/api/expenses/${id}`, id, { category, date, name, amount, memo }).then(res => res.data)
+    let data = axios.put(`/api/expenses/${id}`, {id, category, date, name, amount, memo }).then(res => res.data)
     return {
         type: UPDATE_EXP,
         payload: data
@@ -51,7 +53,9 @@ export function updateExp(id, category, date, name, amount, memo) {
 }
 
 
+
 export default function reducer(state = initialState, action) {
+    console.log(898989, action)
     switch (action.type) {
         case CREATE_EXP + '_FULFILLED':
             return {
@@ -71,14 +75,11 @@ export default function reducer(state = initialState, action) {
             return { ...state, expenses: action.payload }
 
         case UPDATE_EXP + '_FULFILLED':
+        console.log(55555, action.payload)
             return {...state,
-                category: action.payload,
-                date: action.payload,
-                name: action.payload,
-                amount: action.payload,
-                memo: action.payload
+                expenses: action.payload
             }
-            
+
         default:
             return state;
     }

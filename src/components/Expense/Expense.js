@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Expense.css'
-// import { connect } from 'react-redux'
-// import {deleteExp} from './../../ducks/expReducer'
+import { connect } from 'react-redux'
+import {deleteExp, updateExp, getExpByUser} from './../../ducks/expReducer'
 
 class Expense extends Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class Expense extends Component {
             edit: false
         }
     }
+   
 
     handleChange = e => {
         let { name, value } = e.target
@@ -25,12 +26,13 @@ class Expense extends Component {
     }
 
     handleDelete = () => {
-        this.props.deleteAnExp(this.props.expense.exp_id)
+        this.props.deleteExp(this.props.expense.exp_id)
     }
 
-    // handleDelete = () => {
-    //     this.props.deleteExp(this.props.expense.exp_id)
-    // }
+    editAnExp = () => {
+        let {category, date, name, amount, memo} = this.state
+        this.props.updateExp(this.props.expense.exp_id, category, date, name, amount, memo)
+    }
 
     handleEditClick = () => {
         this.setState({
@@ -38,15 +40,18 @@ class Expense extends Component {
         })
     }
 
-    handleUpdateClick = () => {
-        this.props.editAnExp()
+    handleUpdateClick = async () => {
+
+        await this.editAnExp()
         this.setState({
             edit: false
         })
     }
 
     render() {
-        // console.log(22222, this.props.expense)
+        console.log(22222, this.props)
+        // console.log(this.state.name)
+        if(this.props.expense.exp_id === 28) console.log(4545454, this.props.expense)
         return this.state.edit ? (
             <div>
                 <div>
@@ -86,40 +91,9 @@ class Expense extends Component {
             )
     }
 }
-export default Expense
-// const mapState = (reduxState) => reduxState
-// export default connect(mapState, {deleteExp})(Expense)
+function mapState (reduxState) {
+    return {reduxState}
+}
+export default connect(mapState, {deleteExp, updateExp, getExpByUser})(Expense)
 
-// return this.state.edit ? (
-//     <div className='each-gun'>
-//       <div className='the-pic'>
-//           <img src={this.props.gun.image} alt='' width='200'/>
-//       </div>
-//       <div>
-//           <input name='make' value={this.state.make} onChange={this.handleChange}/>
-//           <input name='model' value={this.state.model} onChange={this.handleChange}/>
-//           <input name='round' value={this.state.round} onChange={this.handleChange}/>
-//           <input name='price' value={this.state.price} onChange={this.handleChange}/>
-//           <input name='phone' value={this.state.phone} onChange={this.handleChange}/>
-//           <button className='confirm-button' onClick={this.handleUpdateClick}>Confirm</button>
-//       </div>
-//     </div>
 
-// ) : (
-//       <div className='gun-container'>
-//       <div className='each-gun'>
-//         <div className='the-pic'>
-//           <img src={this.props.gun.image} alt='' height='200' width='200'/>
-//         </div>
-//         <div className='testing'>
-//           <p><strong>Make:</strong> {this.props.gun.make}</p>
-//           <p><strong>Model:</strong> {this.props.gun.model}</p>
-//           <p><strong>Round:</strong> {this.props.gun.round}</p>
-//           <p><strong>Price:</strong> $ {this.props.gun.price}</p>
-//           <p><strong>Phone:</strong> {this.props.gun.phone}</p>
-//           <button className='edit-button' onClick={this.handleEditClick}>Edit Gun</button>
-//           <button className='delete-button' onClick={this.handleDeleteGun}>Sold / Delete Post</button>
-//         </div>
-//     </div>
-//     </div>
-// )
