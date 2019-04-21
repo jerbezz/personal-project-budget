@@ -43,4 +43,6 @@ app.get('/api/expenses', expenseCtrl.getAllExpByUser)
 app.put('/api/expenses/:id', expenseCtrl.editExp)
 app.delete('/api/expenses/:id', expenseCtrl.deleteExp)
 
+//budget controllers
+app.post('/api/budget', budgetCtrl.addBudget)
 

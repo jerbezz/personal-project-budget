@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Expense.css'
 import { connect } from 'react-redux'
-import {deleteExp, updateExp, getExpByUser} from './../../ducks/expReducer'
+import { deleteExp, updateExp, getExpByUser } from './../../ducks/expReducer'
 
 class Expense extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class Expense extends Component {
             edit: false
         }
     }
-   
+
 
     handleChange = e => {
         let { name, value } = e.target
@@ -30,7 +30,7 @@ class Expense extends Component {
     }
 
     editAnExp = () => {
-        let {category, date, name, amount, memo} = this.state
+        let { category, date, name, amount, memo } = this.state
         this.props.updateExp(this.props.expense.exp_id, category, date, name, amount, memo)
     }
 
@@ -49,14 +49,20 @@ class Expense extends Component {
     }
 
     render() {
-        console.log(22222, this.props)
+        // console.log(22222, this.props)
         // console.log(this.state.name)
-        if(this.props.expense.exp_id === 28) console.log(4545454, this.props.expense)
+        // if(this.props.expense.exp_id === 28) console.log(4545454, this.props.expense)
         return this.state.edit ? (
             <div>
                 <div>
-                    <input name='date' value={this.state.date} onChange={this.handleChange} />
-                    <input name='category' value={this.state.category} onChange={this.handleChange} />
+                    <input name='date' value={this.state.date} type='date' onChange={this.handleChange} />
+                    <select name='category' value={this.state.category} onChange={this.handleChange}>
+                        <option>food</option>
+                        <option>gas</option>
+                        <option>rent</option>
+                        <option>car</option>
+                        <option>other</option>
+                    </select> />
                     <input name='name' value={this.state.name} onChange={this.handleChange} />
                     <input name='amount' value={this.state.amount} onChange={this.handleChange} />
                     <input name='memo' value={this.state.memo} onChange={this.handleChange} />
@@ -88,12 +94,13 @@ class Expense extends Component {
 
                     </div>
                 </div>
+
             )
     }
 }
-function mapState (reduxState) {
-    return {reduxState}
+function mapState(reduxState) {
+    return { reduxState }
 }
-export default connect(mapState, {deleteExp, updateExp, getExpByUser})(Expense)
+export default connect(mapState, { deleteExp, updateExp, getExpByUser })(Expense)
 
 
