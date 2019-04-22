@@ -53,7 +53,7 @@ class Expenses extends Component {
     }
 
     render() {
-        // console.log(98876, this.props)
+        console.log(98876, this.props)
         // console.log(1111, this.props.expense.expenses)
         // console.log(9999999, this.props.expense)
         return (

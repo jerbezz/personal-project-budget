@@ -3,7 +3,7 @@ import './Budget.css'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getData} from './../../ducks/authReducer'
-import {createBudget} from './../../ducks/budgetReducer'
+import {createBudget, getBudgetByUser} from './../../ducks/budgetReducer'
 
 class Budget extends Component{
     constructor(){
@@ -21,8 +21,27 @@ class Budget extends Component{
         })
     }
 
+    componentDidMount(){
+        this.props.getData()
+        this.props.getBudgetByUser()
+    }
 
+    addBudget = async () => {
+        let {budgetIncome, budgetExpenses} = this.state
+        await createBudget(budgetIncome, budgetExpenses)
+        await this.props.getBudgetByUser()
+    }
+
+    handleAddNewClick = () => {
+        this.addBudget()
+    }
+    
+    
     render(){
+        // console.log(12345, this.props.getData())
+        console.log(6776, this.props)
+        console.log(999999, this.props.budget.budgets)
+
         return(
             <div>
                 <div className='nav-items'>
@@ -33,13 +52,13 @@ class Budget extends Component{
                 <div>
                     <input name='budgetIncome' value={this.state.budgetIncome} onChange={this.handleChange}></input>
                     <input name='budgetExpenses' value={this.state.budgetExpenses} onChange={this.handleChange}></input>
+                    <button onClick={this.handleAddNewClick}>Create Budget</button>
                 </div>
+                <p>{this.props.budget.budgets.budget_income}</p>
             </div>
         )
     }
 }
 
-function mapState(reduxState) {
-    return { reduxState }
-}
-export default connect(mapState, {getData, createBudget })(Budget)
+const mapState = (reduxState) => reduxState
+export default connect(mapState, { getData, createBudget, getBudgetByUser })(Budget)
