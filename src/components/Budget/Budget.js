@@ -3,6 +3,7 @@ import './Budget.css'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getData} from './../../ducks/authReducer'
+import {getExpByUser} from './../../ducks/expReducer'
 import {createBudget, getBudgetByUser} from './../../ducks/budgetReducer'
 
 class Budget extends Component{
@@ -24,6 +25,7 @@ class Budget extends Component{
     componentDidMount(){
         this.props.getData()
         this.props.getBudgetByUser()
+        this.props.getExpByUser()
     }
 
     addBudget = async () => {
@@ -31,16 +33,135 @@ class Budget extends Component{
         await createBudget(budgetIncome, budgetExpenses)
         await this.props.getBudgetByUser()
     }
-
+    
     handleAddNewClick = () => {
         this.addBudget()
     }
     
     
+    
+    
     render(){
-        // console.log(12345, this.props.getData())
-        console.log(6776, this.props)
-        console.log(999999, this.props.budget.budgets)
+        let {expenses} = this.props.expense
+        let {budgets} = this.props.budget
+        // console.log(2, this.props.budget.budgets)
+        console.log(123, this.props.expense.expenses)
+    
+        
+        let newBudget = budgets[0] ? (budgets[budgets.length - 1].budget_income) : ('loading')
+        let newExpenses = budgets[0] ? (budgets[budgets.length - 1].budget_expenses) : ('loading')
+
+
+        console.log(555, this.props.expense.expenses)
+
+        let userExpTotal = expenses[0] ? ( expenses.map(item =>{
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let miscTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Misc'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let mealsTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Meals'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let shoppingTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Shopping'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let transTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Transportation'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let entTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Entertainment'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let houseTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Housing'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let utilTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Utilities'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let insTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Insurance'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let healthTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Health Care'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let travelTotal = expenses[0] ? (expenses.filter(item => { 
+            if (item.exp_category === 'Travel'){
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
+
+        let newDifferences = newExpenses - userExpTotal
+       
 
         return(
             <div>
@@ -50,15 +171,29 @@ class Budget extends Component{
                 <Link to='/reports'>Reports</Link>
                 </div>
                 <div>
-                    <input name='budgetIncome' value={this.state.budgetIncome} onChange={this.handleChange}></input>
-                    <input name='budgetExpenses' value={this.state.budgetExpenses} onChange={this.handleChange}></input>
+                    <input type='number' name='budgetIncome' value={this.state.budgetIncome} onChange={this.handleChange}></input>
+                    <input type='number' name='budgetExpenses' value={this.state.budgetExpenses} onChange={this.handleChange}></input>
                     <button onClick={this.handleAddNewClick}>Create Budget</button>
                 </div>
-                <p>{this.props.budget.budgets.budget_income}</p>
+                <p>{newBudget}</p>
+                <p>{newExpenses}</p>
+                <p>Total Expenses: {userExpTotal}</p>
+                <p>Misc Total: {miscTotal}</p>
+                <p>Meal Total: {mealsTotal}</p>
+                <p>Shopping Total: {shoppingTotal}</p>
+                <p>Transportation Total: {transTotal}</p>
+                <p>Entertainment Total: {entTotal}</p>
+                <p>Housing Total: {houseTotal}</p>
+                <p>Utilities Total: {utilTotal}</p>
+                <p>Insurance Total: {insTotal}</p>
+                <p>Health Care Total: {healthTotal}</p>
+                <p>Travel Total: {travelTotal}</p>
+
+                <p>{newDifferences}</p>
             </div>
         )
     }
 }
 
 const mapState = (reduxState) => reduxState
-export default connect(mapState, { getData, createBudget, getBudgetByUser })(Budget)
+export default connect(mapState, { getData, createBudget, getBudgetByUser, getExpByUser })(Budget)

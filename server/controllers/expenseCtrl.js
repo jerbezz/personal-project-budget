@@ -3,7 +3,7 @@ module.exports = {
         // console.log(req.session)
         const {category, date, name, amount, memo} = req.body
         const exp_user_id = req.session.user.id
-        console.log(req.session.user)
+        // console.log(req.session.user)
         const db = req.app.get('db')
         const expArr = await db.createExp([exp_user_id, category, date, name, amount, memo, exp_user_id])
             res.status(200).send(expArr)
