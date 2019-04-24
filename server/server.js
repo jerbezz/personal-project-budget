@@ -6,7 +6,7 @@ const session = require('express-session')
 const authCtrl = require('./controllers/authCtrl')
 const expenseCtrl = require('./controllers/expenseCtrl')
 const budgetCtrl = require('./controllers/budgetCtrl')
-const reportCtrl = require('./controllers/reportCtrl')
+// const reportCtrl = require('./controllers/reportCtrl')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
@@ -42,6 +42,7 @@ app.post('/api/expenses', expenseCtrl.addExpense)
 app.get('/api/expenses', expenseCtrl.getAllExpByUser)
 app.put('/api/expenses/:id', expenseCtrl.editExp)
 app.delete('/api/expenses/:id', expenseCtrl.deleteExp)
+app.post('/api/month/expenses', expenseCtrl.getMonthExpByUser)
 
 //budget controllers
 app.post('/api/budget', budgetCtrl.addBudget)

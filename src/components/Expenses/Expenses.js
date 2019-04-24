@@ -23,7 +23,7 @@ class Expenses extends Component {
     componentDidMount() {
         console.log(123, this.props)
         this.props.getData()
-        this.props.getExpByUser()
+        // this.props.getExpByUser()
     }
 
 
@@ -75,16 +75,16 @@ class Expenses extends Component {
                             <div className='exp-create-second-column'>
                                 <div><input name='date' value={this.state.date} onChange={this.handleChange} type='date'></input></div>
                                 <div><select name='category' value={this.state.category} onChange={this.handleChange}>
-                                    <option defaultValue>Misc</option>
-                                    <option>Meals</option>
-                                    <option>Shopping</option>
-                                    <option>Transportation</option>
-                                    <option>Entertainment</option>
-                                    <option>Housing</option>
-                                    <option>Utilities</option>
-                                    <option>Insurance</option>
-                                    <option>Health Care</option>
-                                    <option>Travel</option>
+                                    <option defaultValue value="Misc">Misc</option>
+                                    <option value="Meals">Meals</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Housing">Housing</option>
+                                    <option value="Utilities">Utilities</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Health Care">Health Care</option>
+                                    <option value="Travel">Travel</option>
                                 </select></div>
                                 <div><input name='name' value={this.state.name} onChange={this.handleChange}></input></div>
                             </div>

@@ -57,16 +57,16 @@ class Expense extends Component {
                 <div>
                     <input name='date' value={this.state.date} type='date' onChange={this.handleChange} />
                     <select name='category' value={this.state.category} onChange={this.handleChange}>
-                        <option>Misc</option>
-                        <option>Meals</option>
-                        <option>Shopping</option>
-                        <option>Transportation</option>
-                        <option>Entertainment</option>
-                        <option>Housing</option>
-                        <option>Utilities</option>
-                        <option>Insurance</option>
-                        <option>Health Care</option>
-                        <option>Travel</option>
+                        <option value="Misc">Misc</option>
+                        <option value="Meals">Meals</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Health Care">Health Care</option>
+                        <option value="Travel">Travel</option>
                     </select> />
                     <input name='name' value={this.state.name} onChange={this.handleChange} />
                     <input name='amount' value={this.state.amount} onChange={this.handleChange} />

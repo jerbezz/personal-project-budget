@@ -28,6 +28,14 @@ module.exports = {
         const db = req.app.get('db')
         const expense = await db.deleteExp([id, exp_user_id])
         res.status(200).send(expense)
+    },
+    getMonthExpByUser: async (req, res) => {
+        const db = req.app.get('db')
+        const exp_user_id = req.session.user.id
+        const {month} = req.body
+        const months = await db.query(`select * from expenses where exp_date like '%-${month}-%' and exp_user_id = ${exp_user_id}`)
+        res.status(200).send(months)
+
     }
 }
 

@@ -9,13 +9,16 @@ const initialState = {
     amount: '',
     memo: '',
     expenses: [],
-    updated: false
+    updated: false,
+    month: '',
+    monthExpenses: []
 }
 
 const CREATE_EXP = 'CREATE_EXP'
 const GET_EXP_BY_USER = 'GET_EXP_BY_USER'
 const DELETE_EXP = 'DELETE_EXP'
 const UPDATE_EXP = 'UPDATE_EXP'
+const GET_MONTH_EXP_BY_USER = 'GET_MONTH_EXP_BY_USER'
 
 export function createExp(category, date, name, amount, memo) {
     console.log(category, date, name, amount, memo)
@@ -52,6 +55,15 @@ export function updateExp(id, category, date, name, amount, memo) {
     }
 }
 
+export function getMonthExpByUser (month) {
+   let data = axios.post('/api/month/expenses', {month}).then(res => res.data)
+   console.log(4444, data)
+   return {
+       type: GET_MONTH_EXP_BY_USER,
+       payload: data
+   }
+}
+
 
 
 export default function reducer(state = initialState, action) {
@@ -64,20 +76,30 @@ export default function reducer(state = initialState, action) {
                 date: action.payload,
                 name: action.payload,
                 amount: action.payload,
-                memo: action.payload
+                memo: action.payload,
             }
 
         case GET_EXP_BY_USER + '_FULFILLED':
             console.log(action.payload)
-            return { ...state, expenses: action.payload }
+            return { ...state, expenses: action.payload 
+            }
 
         case DELETE_EXP + '_FULFILLED':
-            return { ...state, expenses: action.payload }
+            return { ...state, expenses: action.payload 
+            }
 
         case UPDATE_EXP + '_FULFILLED':
         // console.log(55555, action.payload)
             return {...state,
                 expenses: action.payload
+            }
+        
+        case GET_MONTH_EXP_BY_USER + '_FULFILLED':
+            console.log(6556, action.payload)
+            return {
+                ...state,
+                month: action.payload,
+                monthExpenses: action.payload
             }
 
         default:
