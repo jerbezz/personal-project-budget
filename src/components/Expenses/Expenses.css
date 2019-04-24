@@ -17,3 +17,29 @@
     justify-content: space-between;
     
 }
+
+.expenses-left-right {
+    display: flex;
+    background: white;
+}
+
+.exps-rightside {
+    background: olive;
+    width: 37%;
+    text-align: center;
+}
+
+.exps-tots-exp {
+    display: flex;
+    text-align: left;
+    margin-left: 30px;
+    
+}
+
+.exps-tots-exp-right{
+    margin-left: 20px;
+}
+
+.exps-chart{
+    /* margin-left: 20px; */
+}

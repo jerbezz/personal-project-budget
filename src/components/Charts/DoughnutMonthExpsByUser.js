@@ -2,7 +2,7 @@ import React, {Component} from  'react'
 import {connect} from 'react-redux'
 import {getData} from './../../ducks/authReducer'
 import {getMonthExpByUser} from './../../ducks/expReducer'
-import { Line, Bar, Radar, Doughnut, Pie, Polar, Bubble } from 'react-chartjs-2';
+import { Doughnut} from 'react-chartjs-2';
 
 class DoughnutMonthExpsByUser extends Component {
     constructor(){
@@ -34,7 +34,107 @@ class DoughnutMonthExpsByUser extends Component {
     }
 
     render(){
+        let{monthExpenses} = this.props.expense
 
+        let miscMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Misc') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let mealsMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Meals') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let shoppingMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Shopping') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let transMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Transportation') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let entMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Entertainment') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let houseMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Housing') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let utilMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Utilities') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let insMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Insurance') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let healthMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Health Care') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
+
+        let travelMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
+            if (item.exp_category === 'Travel') {
+                return item
+            }
+        }).map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        }, 0)) : ('error')
         console.log(5665, this.props)
         return(
             <div>
@@ -60,18 +160,18 @@ class DoughnutMonthExpsByUser extends Component {
                 data={{labels: ['Misc', 'Meals', 'Shopping', 'Transportation', 'Entertainment', 'Housing', 'Utilities', 'Insurance', 'Health Care', 'Travel'],
                 datasets:[
                   {
-                    label:'Population',
+                    label:'Expenses by Month',
                     data:[
-                      1,
-                      2,
-                      3,
-                      4,
-                      5,
-                      6,
-                      7,
-                      8,
-                      9,
-                      10
+                        miscMonth,
+                        mealsMonth,
+                        shoppingMonth,
+                        transMonth,
+                        entMonth,
+                        houseMonth,
+                        utilMonth,
+                        insMonth,
+                        healthMonth,
+                        travelMonth
                     ],
                     backgroundColor:[
                       'rgba(255, 99, 132, 0.6)',
@@ -92,7 +192,7 @@ class DoughnutMonthExpsByUser extends Component {
               options={{
                 title:{
                   display:true,
-                  text:'Total Expenses by Category',
+                  text:'Expenses by Month',
                   fontSize:25
                 },
                 legend:{

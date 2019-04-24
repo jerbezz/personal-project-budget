@@ -9,6 +9,7 @@ import Home from './components/Home/Home'
 import Expenses from './components/Expenses/Expenses'
 import Budget from './components/Budget/Budget'
 import Reports from './components/Reports/Reports'
+import Footer from './components/Footer/Footer'
 
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
         <Route path='/budget' component={Budget}/>
         <Route path='/reports' component={Reports}/>
       </Switch>
-
+      
+      <Footer/>
 
 
 

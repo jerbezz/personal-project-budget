@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import { getData } from './../../ducks/authReducer'
 import { getExpByUser } from './../../ducks/expReducer'
 import { createBudget, getBudgetByUser } from './../../ducks/budgetReducer'
-import { Line, Bar, Radar, Doughnut, Pie, Polar, Bubble } from 'react-chartjs-2';
-import DoughnutExpsByUser from './../Charts/DoughnutExpsByUser'
 
 class Budget extends Component {
     constructor() {
@@ -56,15 +54,11 @@ class Budget extends Component {
 
         console.log(555, this.props.expense.expenses)
 
-        let dateTotal = expenses[0] ? (expenses.filter(item => {
-
-        })) : ('error')
-
         let userExpTotal = expenses[0] ? (expenses.map(item => {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        })) : ('error')
+        })) : ('0.00')
 
         let miscTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Misc') {
@@ -74,7 +68,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let mealsTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Meals') {
@@ -84,7 +78,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let shoppingTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Shopping') {
@@ -94,7 +88,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let transTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Transportation') {
@@ -104,7 +98,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let entTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Entertainment') {
@@ -114,7 +108,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let houseTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Housing') {
@@ -124,7 +118,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let utilTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Utilities') {
@@ -134,7 +128,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let insTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Insurance') {
@@ -144,7 +138,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let healthTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Health Care') {
@@ -154,7 +148,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let travelTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Travel') {
@@ -164,7 +158,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('0.00')
 
         let newDifferences = newExpenses - userExpTotal
 
