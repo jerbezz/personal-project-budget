@@ -25,12 +25,7 @@ class App extends Component {
         <Route path='/budget' component={Budget}/>
         <Route path='/reports' component={Reports}/>
       </Switch>
-      
       <Footer/>
-
-
-
-
     </HashRouter>
     );
   }

@@ -3,5 +3,52 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top:50px
+}
+
+.reg-big-box {
+	background: white;
+	height: 200px;
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	align-content: flex-start;
+	border-radius: 20px;
+	box-shadow: 5px 5px 10px 8px gray
+
+}
+
+.reg-left-side {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-left: 30px;
+}
+
+.reg-right-side {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-right: 30px;
+}
+
+.reg-left-email-box {
+	margin-bottom: 10px;
+}
+
+.reg-right-email-box {
+	margin-bottom: 10px;
+}
+
+.reg-button {
+	height: 50px;
+	width: 120px;
+	border-radius: 10px;
+    background-image: linear-gradient(240deg, #76a9af, #40d2e2, #127194 75%);
+	color: white;
+	font-size: 20px;
+	box-shadow: 10px 5px 10px 0px gray
 
 }

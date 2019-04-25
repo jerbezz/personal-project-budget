@@ -1,0 +1,85 @@
+.budget{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+}
+
+.bud-add-big-box {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 30%;
+    background: white;
+    margin-left: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 8px gray;
+    margin-bottom: 100px;
+}
+ .bud-left-top{
+     
+ }
+
+.bud-left-bottom {
+    background: yellow;
+}
+
+.bud-add-left-right {
+    display: flex;
+    flex-direction: row;
+}
+
+.bud-add-right {
+    margin-left: 10px;
+}
+
+.bud-add-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.bud-add-right-first{
+    margin-top: 25px;
+}
+
+.bud-add-right-second{
+    margin-top: 48px;
+}
+
+.budget-button {
+	height: 50px;
+	width: 120px;
+	border-radius: 10px;
+	background-image: linear-gradient(240deg, #76a9af, #40d2e2, #127194 75%);
+	color: black;
+	font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+	
+}
+
+.bud-act {
+    background: #fff;
+    border-radius: 10px;
+    margin-left: 20px;
+    box-shadow: 5px 5px 10px 8px gray;
+}
+
+.bud-act-big-box {
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+.bud-chart {
+    background: #fff;
+    margin-left: 20px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 8px gray;
+    margin-right: 30px;
+
+    
+}

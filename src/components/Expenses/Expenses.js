@@ -168,20 +168,20 @@ class Expenses extends Component {
         return (
             <div>
                 <nav className='nav-items'>
-                    <Link to='/expenses'>Expenses</Link>
-                    <Link to='/budget'>Budget</Link>
-                    <Link to='/reports'>Reports</Link>
+                    <Link  to='/expenses'>Expenses</Link>
+                    <Link  to='/budget'>Budget</Link>
+                    <Link  to='/reports'>Reports</Link>
                 </nav>
                 <div className='exps-track-exp'>
-                    <div className=''>
-                        <h2>Track an Expense:</h2>
-                        <div className='exp-create-info'>
-                            <div className='exp-create-first-column'>
+                    <div className='exps-track-header'>
+                        <h2 className='exps-create-header'>Track an Expense:</h2>
+                        <div className='exps-create-info'>
+                            <div className='exps-create-first-column'>
                                 <div>Date: </div>
                                 <div>Category: </div>
                                 <div>Name: </div>
                             </div>
-                            <div className='exp-create-second-column'>
+                            <div className='exps-create-second-column'>
                                 <div><input name='date' value={this.state.date} onChange={this.handleChange} type='date'></input></div>
                                 <div><select name='category' value={this.state.category} onChange={this.handleChange}>
                                     <option defaultValue value="Misc">Misc</option>
@@ -197,16 +197,16 @@ class Expenses extends Component {
                                 </select></div>
                                 <div><input name='name' value={this.state.name} onChange={this.handleChange}></input></div>
                             </div>
-                            <div className='exp-create-third-column'>
+                            <div className='exps-create-third-column'>
                                 <div>Amount: </div>
                                 <div>Memo: </div>
                             </div>
-                            <div className='exp-create-fourth-column'>
+                            <div className='exps-create-fourth-column'>
                                 <div><input name='amount' value={this.state.amount} onChange={this.handleChange}></input></div>
                                 <div><input name='memo' value={this.state.memo} onChange={this.handleChange}></input></div>
                             </div>
-                            <div className='exp-create-fifth-column'>
-                                <div><button className='exp-create-button' onClick={this.createNewExp}>Add Expense</button></div>
+                            <div className='exps-create-fifth-column'>
+                                <div><button className='exps-create-button' onClick={this.createNewExp}>Add Expense</button></div>
                             </div>
                         </div>
 
@@ -230,8 +230,10 @@ class Expenses extends Component {
                         })}
                     </div>
                     <div className='exps-rightside'>
+                    <div className='exps-rightside-header'>
                         <h1>Total Expenses for</h1>
                         <h1>{this.props.auth.user.firstName} {this.props.auth.user.lastName}</h1>
+                    </div>
                         <div className='exps-tots-exp'>
                             <div className='exps-tots-exp-left'>
                                 <p>Misc Total:</p>

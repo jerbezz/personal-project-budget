@@ -2,7 +2,7 @@ import React, {Component} from  'react'
 import {connect} from 'react-redux'
 import {getData} from './../../ducks/authReducer'
 import {getExpByUser} from './../../ducks/expReducer'
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut, Line,Pie } from 'react-chartjs-2';
 // import { Line, Bar, Radar, Doughnut, Pie, Polar, Bubble } from 'react-chartjs-2';
 
 
@@ -175,12 +175,13 @@ class DoughnutExpsByUser extends Component {
                   display:true,
                   text:'Total Expenses by Category',
                   fontSize:25,
-                  fontColor: 'black'
+                  fontColor: '#000'
                 },
                 legend:{
                   display:true,
                   position: 'left',
-                fontColor: '#111'
+                  labels: {fontColor: '#000'}
+                
                 }
               }}
                 />

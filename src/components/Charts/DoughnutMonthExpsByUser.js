@@ -138,7 +138,7 @@ class DoughnutMonthExpsByUser extends Component {
         console.log(5665, this.props)
         return(
             <div>
-                <select
+                {/* <select
                 // name='month'
                 onSelect={this.getByMonth}
                 value={this.state.month}
@@ -155,7 +155,7 @@ class DoughnutMonthExpsByUser extends Component {
                     <option value='10'>October</option>
                     <option value='11'>November</option>
                     <option value='12'>December</option>
-                </select>
+                </select> */}
                 <Doughnut
                 data={{labels: ['Misc', 'Meals', 'Shopping', 'Transportation', 'Entertainment', 'Housing', 'Utilities', 'Insurance', 'Health Care', 'Travel'],
                 datasets:[
@@ -193,11 +193,13 @@ class DoughnutMonthExpsByUser extends Component {
                 title:{
                   display:true,
                   text:'Expenses by Month',
-                  fontSize:25
+                  fontSize:25,
+                  fontColor: '#000'
                 },
                 legend:{
                   display:true,
-                  position:'top'
+                  position:'left',
+                  labels: {fontColor: '#000'}
                 }
               }}
                 />

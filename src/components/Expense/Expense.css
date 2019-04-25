@@ -4,46 +4,16 @@
 }
 
 .each-exp {
-    border-bottom: 5px solid black;
+    border-bottom: 2px solid black;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    background: #fff;
+    border-radius: 7.5px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px 2px gray;
     
 }
 
-.exps-track-exp {
-    background: yellow;
-    width: 60%;
-    margin-left: 20px;
-    padding-bottom: 20px;
-}
-
-.exp-create-info{
-    display: flex;
-
-}
-
-.exp-create-second-column {
-    margin-left: 10px;
-}
-
-.exp-create-third-column {
-    margin-left: 10px;
-}
-
-.exp-create-fourth-column {
-    margin-left: 10px;
-}
-
-.exp-create-fifth-column {
-    margin-left: 10px;
-}
-
-.exp-create-button {
-    height: 50px;
-    width: 100px;
-    background: mediumaquamarine;
-    
-}

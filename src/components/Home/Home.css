@@ -45,7 +45,8 @@
     height: 200px;
     width: 300px;
     text-align: center;
-    border-top: 8px solid mediumturquoise;
+    border-top: 8px solid #1b98c5;
+
     border-radius: 10px;
     box-shadow: 5px 5px 10px 8px gray
 }
