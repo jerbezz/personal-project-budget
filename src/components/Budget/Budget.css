@@ -9,26 +9,34 @@
 .bud-add-big-box {
     display: flex;
     flex-direction: column;
-    height: 280px;
+    
     width: 30%;
-    background: white;
+    
     margin-left: 30px;
-    text-align: center;
+    
     border-radius: 10px;
     box-shadow: 5px 5px 10px 8px gray;
     margin-bottom: 100px;
 }
  .bud-left-top{
-     
+     background: blue;
+     height: 280px;
+     border-radius: 10px;
+    box-shadow: 5px 5px 10px 8px gray;
+    text-align: center;
  }
 
 .bud-left-bottom {
     background: yellow;
+    height:280px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 8px gray;
 }
 
 .bud-add-left-right {
     display: flex;
     flex-direction: row;
+    text-align: left;
 }
 
 .bud-add-right {

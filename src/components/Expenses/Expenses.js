@@ -190,7 +190,7 @@ class Expenses extends Component {
                             <div className='exps-create-second-column'>
                                 <div><input name='date' value={this.state.date} onChange={this.handleChange} type='date'></input></div>
                                 <div><select name='category' value={this.state.category} onChange={this.handleChange}>
-                                    <option defaultValue value="Misc">Misc</option>
+                                    <option value="Misc">Misc</option>
                                     <option value="Meals">Meals</option>
                                     <option value="Shopping">Shopping</option>
                                     <option value="Transportation">Transportation</option>

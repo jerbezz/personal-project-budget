@@ -37,7 +37,7 @@ header {
   }
 
   .fa-money-bill-wave {
-    color: white
+    color: whitesmoke
   }
 
   .header-button{
@@ -46,6 +46,7 @@ header {
     border-radius: 15px;
     font-size: 20px;
     box-shadow: 4px 4px 4px  gray;
+    background-color: whitesmoke;
 
   }
 

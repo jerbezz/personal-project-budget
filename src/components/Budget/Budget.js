@@ -220,7 +220,7 @@ class Budget extends Component {
                                 onSelect={this.getByMonth}
                                 value={this.state.month}
                                 onChange={e => this.handleSelectChange('month', e.target.value)}>
-                                <option defaultValue value='01'>January</option>
+                                <option value='01'>January</option>
                                 <option value='02'>February</option>
                                 <option value='03'>March</option>
                                 <option value='04'>April</option>
