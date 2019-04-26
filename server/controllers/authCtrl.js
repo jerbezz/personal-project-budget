@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs')
+const {REACT_APP_REDIRECT} = process.env
 
 module.exports = {
     register: async (req, res) => {
@@ -38,7 +39,7 @@ module.exports = {
     },
     logout: (req, res) => {
         req.session.destroy()
-        res.redirect('http://localhost:3000/#/')
+        res.redirect(REACT_APP_REDIRECT)
     },
     userData: (req, res) => {
         if(req.session.user) res.status(200).send(req.session.user)

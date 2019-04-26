@@ -33,7 +33,7 @@ class Header extends Component {
                             Welcome: {this.props.auth.user.firstName} {this.props.auth.user.lastName}
                         </div>
                         <div className='h-r-r'>
-                            <a href='http://localhost:5550/logout'>
+                            <a href={process.env.REACT_APP_LOGOUT}>
                                 <button className='header-logout-btn'>Logout</button>
                             </a>
                         </div>

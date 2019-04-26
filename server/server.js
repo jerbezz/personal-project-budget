@@ -22,7 +22,8 @@ massive(CONNECTION_STRING).then(db => {
 
   
   })
-
+  
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(express.json());
 app.use(session({
     secret: SESSION_SECRET,
@@ -30,6 +31,7 @@ app.use(session({
     saveUninitialized: false
 
 }))
+
 
 //auth register and login Controllers
 app.post('/auth/register', authCtrl.register)
