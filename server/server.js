@@ -43,6 +43,7 @@ app.get('/api/expenses', expenseCtrl.getAllExpByUser)
 app.put('/api/expenses/:id', expenseCtrl.editExp)
 app.delete('/api/expenses/:id', expenseCtrl.deleteExp)
 app.post('/api/month/expenses', expenseCtrl.getMonthExpByUser)
+app.get('/api/expenses/join', expenseCtrl.tableJoin)
 
 //budget controllers
 app.post('/api/budget', budgetCtrl.addBudget)

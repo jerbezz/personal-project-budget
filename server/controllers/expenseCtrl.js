@@ -35,7 +35,12 @@ module.exports = {
         const {month} = req.body
         const months = await db.query(`select * from expenses where exp_date like '%-${month}-%' and exp_user_id = ${exp_user_id}`)
         res.status(200).send(months)
-
+    },
+    tableJoin: async (req, res) => {
+        const exp_user_id = req.session.user.id
+        const db = req.app.get('db')
+        const join = await db.joinTable([exp_user_id])
+        res.status(200).send(join)
     }
 }
 

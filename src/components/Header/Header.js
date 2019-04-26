@@ -12,7 +12,6 @@ class Header extends Component {
     }
 
     render() {
-        console.log(1111, this.props.auth.user.loggedIn)
         return !this.props.auth.user.email ? (
             <header>
                 <div className='header-left'> <Link to='/'> <i className="fas fa-money-bill-wave fa-5x"></i> </Link></div>

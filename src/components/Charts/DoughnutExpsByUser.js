@@ -44,7 +44,7 @@ class DoughnutExpsByUser extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('error')
+        }, 0)) : ('loading')
 
         let mealsTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Meals') {

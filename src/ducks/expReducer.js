@@ -11,7 +11,8 @@ const initialState = {
     expenses: [],
     updated: false,
     month: '',
-    monthExpenses: []
+    monthExpenses: [],
+    tableJoin: []
 }
 
 const CREATE_EXP = 'CREATE_EXP'
@@ -19,6 +20,7 @@ const GET_EXP_BY_USER = 'GET_EXP_BY_USER'
 const DELETE_EXP = 'DELETE_EXP'
 const UPDATE_EXP = 'UPDATE_EXP'
 const GET_MONTH_EXP_BY_USER = 'GET_MONTH_EXP_BY_USER'
+const GET_JOIN_TABLE = 'GET_JOIN_TABLE'
 
 export function createExp(category, date, name, amount, memo) {
     console.log(category, date, name, amount, memo)
@@ -64,6 +66,14 @@ export function getMonthExpByUser (month) {
    }
 }
 
+export function joinTable(){
+    let data = axios.get('/api/expenses/join').then(res => res.data)
+    return {
+        type: GET_JOIN_TABLE,
+        payload: data
+    }
+}
+
 
 
 export default function reducer(state = initialState, action) {
@@ -100,6 +110,10 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 month: action.payload,
                 monthExpenses: action.payload
+            }
+
+        case GET_JOIN_TABLE + '_FULFILLED':
+            return { ...state, tableJoin: action.payload
             }
 
         default:

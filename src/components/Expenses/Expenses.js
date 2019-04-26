@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { createExp, getExpByUser } from './../../ducks/expReducer'
+import { createExp, getExpByUser, joinTable } from './../../ducks/expReducer'
 import { getData } from './../../ducks/authReducer'
 import { connect } from 'react-redux'
 import Expense from './../Expense/Expense'
@@ -25,6 +25,7 @@ class Expenses extends Component {
         console.log(123, this.props)
         this.props.getData()
         this.props.getExpByUser()
+        this.props.joinTable()
     }
 
 
@@ -33,6 +34,7 @@ class Expenses extends Component {
         let { category, date, name, amount, memo } = this.state
         await this.props.createExp(category, date, name, amount, memo)
         await this.props.getExpByUser()
+        await this.props.joinTable()
     }
 
     handleChange = e => {
@@ -58,6 +60,10 @@ class Expenses extends Component {
         // console.log(1111, this.props.expense.expenses)
         // console.log(9999999, this.props.expense)
         let { expenses } = this.props.expense
+        let {tableJoin} = this.props.expense
+
+        let theFirstName = tableJoin[0] ? (tableJoin[0].user_first_name) : ('Loading')
+        let theLastName = tableJoin[0] ? (tableJoin[0].user_last_name) : ('Loading')
 
         let userExpTotal = expenses[0] ? (expenses.map(item => {
             return Number(item.exp_amount)
@@ -232,7 +238,7 @@ class Expenses extends Component {
                     <div className='exps-rightside'>
                     <div className='exps-rightside-header'>
                         <h1>Total Expenses for</h1>
-                        <h1>{this.props.auth.user.firstName} {this.props.auth.user.lastName}</h1>
+                        <h1>{theFirstName} {theLastName}</h1>
                     </div>
                         <div className='exps-tots-exp'>
                             <div className='exps-tots-exp-left'>
@@ -278,4 +284,4 @@ class Expenses extends Component {
 }
 
 const mapState = (reduxState) => reduxState
-export default connect(mapState, { getData, createExp, getExpByUser })(Expenses)
+export default connect(mapState, { getData, createExp, getExpByUser, joinTable })(Expenses)
