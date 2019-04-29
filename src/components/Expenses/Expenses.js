@@ -5,7 +5,8 @@ import { getData } from './../../ducks/authReducer'
 import { connect } from 'react-redux'
 import Expense from './../Expense/Expense'
 import './Expenses.css'
-import DoughtnutExpsByUser from './../Charts/DoughnutExpsByUser'
+import DoughnutExpsByUser from './../Charts/DoughnutExpsByUser'
+
 
 class Expenses extends Component {
     constructor() {
@@ -189,7 +190,7 @@ class Expenses extends Component {
                             </div>
                             <div className='exps-create-second-column'>
                                 <div><input name='date' value={this.state.date} onChange={this.handleChange} type='date'></input></div>
-                                <div><select name='category' value={this.state.category} onChange={this.handleChange} defaultValue='Misc'>
+                                <div><select name='category' value={this.state.category} onChange={this.handleChange}>
                                     <option defaultValue value='Misc'>Select a Category</option>
                                     <option value="Misc">Misc</option>
                                     <option value="Meals">Meals</option>
@@ -272,7 +273,7 @@ class Expenses extends Component {
                             </div>
                         </div>
                         <div className='exps-chart'>
-                        <DoughtnutExpsByUser />
+                        <DoughnutExpsByUser />
                         </div>
                     </div>
 

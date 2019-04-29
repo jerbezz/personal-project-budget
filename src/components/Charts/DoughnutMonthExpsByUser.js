@@ -174,16 +174,16 @@ class DoughnutMonthExpsByUser extends Component {
                         travelMonth
                     ],
                     backgroundColor:[
-                      'rgba(255, 99, 132, 0.6)',
-                      'rgba(54, 162, 235, 0.6)',
-                      'rgba(255, 206, 86, 0.6)',
-                      'rgba(75, 192, 192, 0.6)',
-                      'rgba(153, 102, 255, 0.6)',
-                      'rgba(255, 159, 64, 0.6)',
-                      'rgba(255, 99, 132, 0.6)',
-                      'rgba(54, 162, 235, 0.6)',
-                      'rgba(255, 206, 86, 0.6)',
-                      'rgba(75, 192, 192, 0.6)'
+                      '#e4b031',
+                      '#383689',
+                      '#84d2f4',
+                      '#d21f75',
+                      '#f5c8af',
+                      '#267278',
+                      '#e57438',
+                      '#4770b3',
+                      '#cad93f',
+                      '#9e9ea2'
                     ]
                   }
                 ]
@@ -209,3 +209,14 @@ class DoughnutMonthExpsByUser extends Component {
 }
 const mapState = (reduxState) => reduxState
 export default connect(mapState, { getData, getMonthExpByUser })(DoughnutMonthExpsByUser)
+
+// 'rgba(255, 99, 132, 0.6)',
+// 'rgba(54, 162, 235, 0.6)',
+// 'rgba(255, 206, 86, 0.6)',
+// 'rgba(75, 192, 192, 0.6)',
+// 'rgba(153, 102, 255, 0.6)',
+// 'rgba(255, 159, 64, 0.6)',
+// 'rgba(255, 99, 132, 0.6)',
+// 'rgba(54, 162, 235, 0.6)',
+// 'rgba(255, 206, 86, 0.6)',
+// 'rgba(75, 192, 192, 0.6)'

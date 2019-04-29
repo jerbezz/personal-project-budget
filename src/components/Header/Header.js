@@ -3,7 +3,8 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getData } from './../../ducks/authReducer'
-
+import logo from './money-svgrepo-com.svg'
+import logo1  from './money-svgrepo-com (1).svg'
 
 class Header extends Component {
 
@@ -14,7 +15,8 @@ class Header extends Component {
     render() {
         return !this.props.auth.user.email ? (
             <header>
-                <div className='header-left'> <Link to='/'> <i className="fas fa-money-bill-wave fa-5x"></i> </Link></div>
+                <div className='header-left'><img className='header-logo' src={logo1} alt="budget-logo" /></div>
+                {/* <div className='header-left'> <Link to='/'> <i className="fas fa-money-bill-wave fa-5x"></i> </Link></div> */}
                 <div className='header-mid'>TEGDUB</div>
                 <div className='header-right'>
                     <div className='h-r-l'><Link to='/auth/register'><button className='header-button'>Register</button></Link></div>
@@ -26,7 +28,8 @@ class Header extends Component {
             </header>
         ) : (
                 <header>
-                    <div className='header-left'> <Link to='/'> <i className="fas fa-money-bill-wave fa-5x"></i> </Link></div>
+                    <div className='header-left'><img className='header-logo' src={logo1} alt="bank logo" /></div>
+                    {/* <div className='header-left'> <Link to='/'> <i className="fas fa-money-bill-wave fa-5x"></i> </Link></div> */}
                     <div className='header-mid'>TEGDUB</div>
                     <div className='header-right'>
                         <div className='h-r-l'>
