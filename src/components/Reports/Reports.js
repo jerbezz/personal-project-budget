@@ -12,11 +12,11 @@ class Reports extends Component{
     render(){
         return(
             <div>
-                <div className='nav-items'>
-                <Link to='/expenses'>Expenses</Link>
-                <Link to='/budget'>Budget</Link>
-                <Link to='/reports'>Reports</Link>
-                </div>
+                <nav className='nav-items'>
+                    <h1><Link className='nav-link' to='/expenses'>Expenses</Link></h1>
+                    <h1><Link className='nav-link' to='/budget'>Budget</Link></h1>
+                    <h1><Link className='nav-link' to='/reports'>Reports</Link></h1>
+                </nav>
                 <DoughnutExpsByUser/>
                 <DoughnutMonthExpsByUser/>
             </div>

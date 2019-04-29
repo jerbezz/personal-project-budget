@@ -69,7 +69,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        })) : ('0.00')
+        }).toFixed(2)) : ('0.00')
 
         let miscTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Misc') {
@@ -79,7 +79,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let mealsTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Meals') {
@@ -89,7 +89,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let shoppingTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Shopping') {
@@ -99,7 +99,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let transTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Transportation') {
@@ -109,7 +109,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let entTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Entertainment') {
@@ -119,7 +119,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let houseTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Housing') {
@@ -129,7 +129,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let utilTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Utilities') {
@@ -139,7 +139,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let insTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Insurance') {
@@ -149,7 +149,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let healthTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Health Care') {
@@ -159,7 +159,7 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let travelTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Travel') {
@@ -169,14 +169,14 @@ class Expenses extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         return (
             <div>
                 <nav className='nav-items'>
-                    <Link  to='/expenses'>Expenses</Link>
-                    <Link  to='/budget'>Budget</Link>
-                    <Link  to='/reports'>Reports</Link>
+                    <h1><Link className='nav-link' to='/expenses'>Expenses</Link></h1>
+                    <h1><Link className='nav-link' to='/budget'>Budget</Link></h1>
+                    <h1><Link className='nav-link' to='/reports'>Reports</Link></h1>
                 </nav>
                 <div className='exps-track-exp'>
                     <div className='exps-track-header'>
@@ -189,7 +189,8 @@ class Expenses extends Component {
                             </div>
                             <div className='exps-create-second-column'>
                                 <div><input name='date' value={this.state.date} onChange={this.handleChange} type='date'></input></div>
-                                <div><select name='category' value={this.state.category} onChange={this.handleChange}>
+                                <div><select name='category' value={this.state.category} onChange={this.handleChange} defaultValue='Misc'>
+                                    <option defaultValue value='Misc'>Select a Category</option>
                                     <option value="Misc">Misc</option>
                                     <option value="Meals">Meals</option>
                                     <option value="Shopping">Shopping</option>
@@ -222,11 +223,11 @@ class Expenses extends Component {
                 <div className='expenses-left-right'>
                     <div className='map-border-box'>
                         <div className='exps-map-header'>
-                            <h3>Date</h3>
-                            <h3>Category</h3>
-                            <h3>Name</h3>
-                            <h3>Amount</h3>
-                            <h3>Memo</h3>
+                            <h3 className='exps-map-header-date'>Date</h3>
+                            <h3 className='exps-map-header-cat'>Category</h3>
+                            <h3 className='exps-map-header-name'>Name</h3>
+                            <h3 className='exps-map-header-amount'>Amount</h3>
+                            <h3 className='exps-map-header-memo'>Memo</h3>
                         </div>
                         {this.props.expense.expenses.map((item, i) => {
                             return <Expense
@@ -237,8 +238,8 @@ class Expenses extends Component {
                     </div>
                     <div className='exps-rightside'>
                     <div className='exps-rightside-header'>
-                        <h1>Total Expenses for</h1>
-                        <h1>{theFirstName} {theLastName}</h1>
+                        <h2>Total Expenses for</h2>
+                        <h2>{theFirstName} {theLastName}</h2>
                     </div>
                         <div className='exps-tots-exp'>
                             <div className='exps-tots-exp-left'>

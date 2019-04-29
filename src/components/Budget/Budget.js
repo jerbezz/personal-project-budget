@@ -66,22 +66,17 @@ class Budget extends Component {
         // console.log(2, this.props.budget.budgets)
         // console.log(123, this.props.expense.expenses)
 
-
-        let newBudget = budgets[0] ? (budgets[budgets.length - 1].budget_income) : ('Budget an Income Amount')
+        let newBudget = budgets[0] ? (Number(budgets[budgets.length - 1].budget_income).toFixed(2)) : ('Budget an Income Amount')
         let newExpenses = budgets[0] ? (budgets[budgets.length - 1].budget_expenses) : ('Budget an Expense Amount')
 
 
         console.log(555, this.props.expense.expenses)
 
-
-
-        // let newDifferences = newExpenses - userExpTotal
-
         let userExpTotal = monthExpenses[0] ? (monthExpenses.map(item => {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        })) : ('0.00')
+        }).toFixed(2)) : ('0.00')
 
         let miscMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Misc') {
@@ -91,7 +86,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let mealsMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Meals') {
@@ -101,7 +96,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let shoppingMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Shopping') {
@@ -111,7 +106,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let transMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Transportation') {
@@ -121,7 +116,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let entMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Entertainment') {
@@ -131,7 +126,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let houseMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Housing') {
@@ -141,7 +136,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let utilMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Utilities') {
@@ -151,7 +146,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let insMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Insurance') {
@@ -161,7 +156,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let healthMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Health Care') {
@@ -171,7 +166,7 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
 
         let travelMonth = monthExpenses[0] ? (monthExpenses.filter(item => {
             if (item.exp_category === 'Travel') {
@@ -181,23 +176,31 @@ class Budget extends Component {
             return Number(item.exp_amount)
         }).reduce((total, curr) => {
             return total += curr
-        }, 0)) : ('0.00')
+        }, 0).toFixed(2)) : ('0.00')
+
+        let newDifferences = Number(newBudget) - Number(userExpTotal)
+
+        // two decimals
+        newDifferences = newDifferences.toFixed(2)
+        // newBudget = newBudget.toFixed(2)
+
+
 
         return (
             <div>
-                <div className='nav-items'>
-                    <Link to='/expenses'>Expenses</Link>
-                    <Link to='/budget'>Budget</Link>
-                    <Link to='/reports'>Reports</Link>
-                </div>
+                <nav className='nav-items'>
+                    <h1><Link className='nav-link' to='/expenses'>Expenses</Link></h1>
+                    <h1><Link className='nav-link' to='/budget'>Budget</Link></h1>
+                    <h1><Link className='nav-link' to='/reports'>Reports</Link></h1>
+                </nav>
                 <div className='budget'>
                     <div className='bud-add-big-box'>
                         <div className='bud-left-top'>
                             <h2>Create Monthly Budget Amounts</h2>
                             <div className='bud-add-left-right'>
                                 <div className='bud-add-left'>
-                                    <h2>Monthly Income Budget:</h2>
-                                    <h2>Monthly Expense Budget:</h2>
+                                    <h3>Monthly Income Budget:</h3>
+                                    <h3>Monthly Expense Budget:</h3>
                                 </div>
                                 <div className='bud-add-right'>
                                     <div className='bud-add-right-first'>$<input type='number' name='budgetIncome' value={this.state.budgetIncome} onChange={this.handleChange}></input></div>
@@ -208,45 +211,78 @@ class Budget extends Component {
                             <div><button className='budget-button' onClick={this.handleAddNewClick}>Create Budget</button></div>
                         </div>
                         <div className='bud-left-bottom'>
-                            {newBudget}
-                            {newExpenses}
+                            <h2>Budget Information</h2>
+                            <div className='bud-add-left-right'>
+                                <div className='bud-add-left'>
+                                    <h3>Budgeted Monthly Income:</h3>
+                                    <h3>Acutal Monthly Expenses:</h3>
+                                    <h3>Remaining:</h3>
+                                </div>
+                                <div className='bud-add-right'>
+                                    <div className='bud-add-bottom-right-first'><h3>${newBudget}</h3></div>
+                                    <div className='bud-add-bottom-right-second'><h3>${userExpTotal}</h3></div>
+                                    <div className='bud-add-bottom-right-third'><h3>${newDifferences}</h3></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='bud-act'>
                         <div className='bud-act-big-box'>
-                            <h1>Monthly Expense Amounts:</h1>
-                            <select
+                            <h2>Monthly Expense Amounts:</h2>
+                            <div className='bud-mid-select'>
+                                <select
 
-                                onSelect={this.getByMonth}
-                                value={this.state.month}
-                                onChange={e => this.handleSelectChange('month', e.target.value)}>
-                                <option value='01'>January</option>
-                                <option value='02'>February</option>
-                                <option value='03'>March</option>
-                                <option value='04'>April</option>
-                                <option value='05'>May</option>
-                                <option value='06'>June</option>
-                                <option value='07'>July</option>
-                                <option value='08'>August</option>
-                                <option value='09'>September</option>
-                                <option value='10'>October</option>
-                                <option value='11'>November</option>
-                                <option value='12'>December</option>
-                            </select>
-                            <p>{newBudget}</p>
-                            <p>{newExpenses}</p>
-                            <p>Total Expenses: {userExpTotal}</p>
-                            <p>Misc Total: {miscMonth}</p>
-                            <p>Meals Total: {mealsMonth}</p>
-                            <p>Shopping Total: {shoppingMonth}</p>
-                            <p>Transportation Total: {transMonth}</p>
-                            <p>Entertainment Total: {entMonth}</p>
-                            <p>Housing Total: {houseMonth}</p>
-                            <p>Utilities Total: {utilMonth}</p>
-                            <p>Insurance Total: {insMonth}</p>
-                            <p>Health Care Total: {healthMonth}</p>
-                            <p>Travel Total: {travelMonth}</p>
-                            {/* <p>Difference of Budgeted vs. Actual Expenses: {newDifferences}</p> */}
+                                    onSelect={this.getByMonth}
+                                    value={this.state.month}
+                                    onChange={e => this.handleSelectChange('month', e.target.value)}
+                                >
+                                    <option>Select a Month</option>
+                                    <option value='01'>January</option>
+                                    <option value='02'>February</option>
+                                    <option value='03'>March</option>
+                                    <option value='04'>April</option>
+                                    <option value='05'>May</option>
+                                    <option value='06'>June</option>
+                                    <option value='07'>July</option>
+                                    <option value='08'>August</option>
+                                    <option value='09'>September</option>
+                                    <option value='10'>October</option>
+                                    <option value='11'>November</option>
+                                    <option value='12'>December</option>
+                                </select>
+                            </div>
+                            <div className='bud-mid-l-r'>
+
+                                <div className='bud-mid-left'>
+                                    <div><p>Misc:</p></div>
+                                    <div><p>Meals:</p></div>
+                                    <div><p>Shopping:</p></div>
+                                    <div><p>Transportation:</p></div>
+                                    <div><p>Entertainment:</p></div>
+                                    <div><p>Housing:</p></div>
+                                    <div><p>Utilities:</p></div>
+                                    <div><p>Insurance:</p></div>
+                                    <div><p>Health Care:</p></div>
+                                    <div><p>Travel:</p></div>
+                                    <div><br></br></div>
+                                    <div><p>Total Expenses:</p></div>
+                                </div>
+                                <div className='bud-mid-right'>
+                                    <div><p>${miscMonth}</p></div>
+                                    <div><p>${mealsMonth}</p></div>
+                                    <div><p>${shoppingMonth}</p></div>
+                                    <div><p>${transMonth}</p></div>
+                                    <div><p>${entMonth}</p></div>
+                                    <div><p>${houseMonth}</p></div>
+                                    <div><p>${utilMonth}</p></div>
+                                    <div><p>${insMonth}</p></div>
+                                    <div><p>${healthMonth}</p></div>
+                                    <div><p>${travelMonth}</p></div>
+                                    <div><br></br></div>
+                                    <div><p>${userExpTotal}</p></div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 

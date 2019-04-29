@@ -30,11 +30,11 @@ class Header extends Component {
                     <div className='header-mid'>TEGDUB</div>
                     <div className='header-right'>
                         <div className='h-r-l'>
-                            Welcome: {this.props.auth.user.firstName} {this.props.auth.user.lastName}
+                            <h2>Welcome: {this.props.auth.user.firstName} {this.props.auth.user.lastName}</h2>
                         </div>
                         <div className='h-r-r'>
                             <a href={process.env.REACT_APP_LOGOUT}>
-                                <button className='header-logout-btn'>Logout</button>
+                                <button className='header-button'>Logout</button>
                             </a>
                         </div>
                     </div>

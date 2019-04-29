@@ -79,23 +79,26 @@ class Expense extends Component {
                 <div className='exp-border-box'>
 
                     <div className='each-exp'>
-                        <div className='exp-info'>
+                        <div className='exp-info-date'>
                             <p>{this.props.expense.exp_date}</p>
                         </div>
-                        <div className='exp-info'>
+                        <div className='exp-info-category'>
                             <p>{this.props.expense.exp_category}</p>
                         </div>
-                        <div className='exp-info'>
+                        <div className='exp-info-name'>
                             <p>{this.props.expense.exp_name}</p>
                         </div>
-                        <div className='exp-info'>
-                            <p>{this.props.expense.exp_amount}</p>
+                        <div className='exp-info-amount'>
+                            <p>{Number(this.props.expense.exp_amount).toFixed(2)}</p>
                         </div>
-                        <div className='exp-info'>
+                        <div className='exp-info-memo'>
                             <p>{this.props.expense.exp_memo}</p>
                         </div>
-                        <button onClick={this.handleDelete}>X</button>
-                        <button onClick={this.handleEditClick}>Edit</button>
+                        <div className='exp-info-button'>
+                        <button className='exp-edit-button' onClick={this.handleEditClick}>Edit</button>
+                        <button className='exp-edit-button' onClick={this.handleDelete}>Delete</button>
+
+                        </div>
 
                     </div>
                 </div>

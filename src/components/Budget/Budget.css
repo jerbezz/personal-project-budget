@@ -1,60 +1,70 @@
+
 .budget{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    margin-top: 20px;
 
 }
 
 .bud-add-big-box {
     display: flex;
     flex-direction: column;
-    
-    width: 30%;
-    
+    width: 35%;
     margin-left: 30px;
-    
     border-radius: 10px;
-    box-shadow: 5px 5px 10px 8px gray;
     margin-bottom: 100px;
 }
  .bud-left-top{
-     background: blue;
+     background: #fff;
      height: 280px;
      border-radius: 10px;
     box-shadow: 5px 5px 10px 8px gray;
     text-align: center;
+    margin-bottom: 20px;
+    
  }
 
 .bud-left-bottom {
-    background: yellow;
+    background: #fff;
     height:280px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 8px gray;
+    text-align: center;
 }
 
 .bud-add-left-right {
     display: flex;
     flex-direction: row;
     text-align: left;
+    justify-content: space-around;
 }
 
 .bud-add-right {
-    margin-left: 10px;
+    /* margin-left: 20px; */
 }
 
 .bud-add-left {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .bud-add-right-first{
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .bud-add-right-second{
-    margin-top: 48px;
+    margin-top: 40px;
+}
+
+.bud-add-bottom-right-second {
+    margin-top: 38px;
+}
+
+.bud-add-bottom-right-third {
+    margin-top: 38px;
 }
 
 .budget-button {
@@ -66,7 +76,11 @@
 	font-size: 20px;
     font-weight: 700;
     margin-top: 20px;
-	
+}
+
+.budget-button:hover{
+    background-image: linear-gradient(240deg, rgb(218, 169, 34), #ffa500, rgb(189, 105, 9) 75%);
+
 }
 
 .bud-act {
@@ -74,6 +88,8 @@
     border-radius: 10px;
     margin-left: 20px;
     box-shadow: 5px 5px 10px 8px gray;
+    width: 24%;
+    text-align: center;
 }
 
 .bud-act-big-box {
@@ -81,10 +97,33 @@
     padding-right: 10px;
 }
 
+
+
+.bud-mid-l-r {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+
+}
+
+.bud-mid-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+    
+}
+
+.bud-mid-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .bud-chart {
     background: #fff;
     margin-left: 20px;
-    width: 500px;
+    width: 35%;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 8px gray;
     margin-right: 30px;

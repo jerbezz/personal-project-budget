@@ -1,11 +1,11 @@
-.exp-blue-box {
-    background: mediumaquamarine;
-    height: 100px;
+.exp-border-box {
+
 }
 
 .each-exp {
     border-bottom: 2px solid black;
     width: 100%;
+    height: 60px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,4 +16,51 @@
     box-shadow: 2px 2px 2px 2px gray;
     
 }
+
+.exp-info-date {
+    display: flex;
+    justify-content: flex-start;
+    width: 15%;
+    margin-left: 10px;  
+}
+
+.exp-info-category{
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+}
+
+.exp-info-name{
+    display: flex;
+    justify-content: flex-start;
+    width: 25%;  
+}
+
+.exp-info-amount{
+    display: flex;
+    justify-content: flex-start;
+    width: 15%; 
+}
+
+.exp-info-memo{
+    display: flex;
+    justify-content: flex-start;
+    width: 20%; 
+}
+
+.exp-info-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 5;
+    margin-right: 10px;
+    
+
+}
+
+.exp-edit-button:hover{
+    background-color: #5ab7c2;
+}
+
+
 

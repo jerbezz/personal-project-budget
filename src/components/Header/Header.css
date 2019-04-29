@@ -32,6 +32,7 @@ header {
     width: 33.3%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     
 
   }
@@ -47,7 +48,12 @@ header {
     font-size: 20px;
     box-shadow: 4px 4px 4px  gray;
     background-color: whitesmoke;
+    outline: none;
 
+  }
+
+  .header-button:hover{
+    background-color: #ffa500;
   }
 
   .h-r-l {

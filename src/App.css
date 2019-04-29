@@ -29,6 +29,17 @@ body {
   
 }
 
-.nav-items, a:link{
-  color: pink
+.nav-link:active {
+  color: #ffa500
+}
+
+.nav-link {
+  color: #f5f5f5;
+  text-decoration-line: underline;
+}
+
+
+.nav-link:hover{
+  color: #ffa500;
+  text-decoration: none;
 }
