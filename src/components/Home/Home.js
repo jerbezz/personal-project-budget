@@ -6,7 +6,7 @@ class Home extends Component{
   
     render(){
         return(
-            <div>
+            <div className='home'>
                 <div className='home-pic'>
                 <img className='home-img' src='https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' alt='money'/>
                 </div>
@@ -24,3 +24,4 @@ class Home extends Component{
     }
 }
 export default Home
+
