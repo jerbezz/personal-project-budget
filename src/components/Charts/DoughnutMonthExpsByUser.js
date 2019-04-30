@@ -135,11 +135,11 @@ class DoughnutMonthExpsByUser extends Component {
         }).reduce((total, curr) => {
             return total += curr
         }, 0)) : ('error')
-        console.log(5665, this.props)
+        // console.log(5665, this.props)
         return(
             <div>
                 {/* <select
-                // name='month'
+                name='month'
                 onSelect={this.getByMonth}
                 value={this.state.month}
                 onChange={e => this.handleChange('month', e.target.value)}>

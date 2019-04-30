@@ -126,3 +126,140 @@
 .exps-chart{
     margin-left: 20px;
 }
+
+@media(max-width: 420px) {
+
+    .exps-track-exp {
+        display: none;
+        background: #fff;
+        width: 60%;
+        margin-left: 20px;
+        padding-bottom: 20px;
+        margin-top: -20px;
+    }
+    
+    .exps-track-header {
+        margin-left: 10px;
+        
+    }
+    
+    .exps-create-info{
+        display: flex;
+    
+    }
+    
+    .exps-create-second-column {
+        margin-left: 10px;
+    }
+    
+    .exps-create-third-column {
+        margin-left: 10px;
+    }
+    
+    .exps-create-fourth-column {
+        margin-left: 10px;
+    }
+    
+    .exps-create-fifth-column {
+        margin-left: 10px;
+    }
+    
+    .exps-create-button {
+        height: 50px;
+        width: 100px;
+        background-image: linear-gradient(240deg, #76a9af, #40d2e2, #127194 75%);
+        font-size: 15px;
+        font-weight: 700;
+    }
+    
+    .expenses-left-right {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .map-border-box {
+       
+        width: 90%;
+     
+       
+    }
+    
+    .exps-map-header {
+        background-image: linear-gradient(240deg, #76a9af, #40d2e2, #127194 75%);
+    
+        height: 100px;
+        border-bottom: 5px solid #000;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        /* justify-content: space-between; */
+        margin-bottom: 5px;
+        font-size: 8px;
+        height: 10%;
+    }
+    
+    .exps-map-header-date {
+      display:flex;
+      justify-content: flex-start;
+      width: 14%;
+      margin-left: 10px;  
+    }
+    
+    .exps-map-header-cat {
+        display:flex;
+      justify-content: flex-start;
+      width: 20%;
+    }
+    
+    .exps-map-header-name {
+        display:flex;
+      justify-content: flex-start;
+      width: 24%;
+    }
+    
+    .exps-map-header-amount {
+        display:flex;
+      justify-content: flex-start;
+      width: 15%;
+    }
+    
+    .exps-map-header-memo {
+        display:flex;
+      justify-content: flex-start;
+      width: 10%;
+    }
+    
+    
+   
+    
+    .exps-rightside-header{
+        background-image: linear-gradient(240deg, #76a9af, #40d2e2, #127194 75%);
+        margin-top: -21px;
+        height: 5%;
+        /* border-bottom: 5px solid #000; */
+    
+    }
+    
+    .exps-rightside {
+        background:#fff;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    
+    .exps-tots-exp {
+        display: flex;
+        text-align: left;
+        margin-left:60px;
+        
+    }
+    
+    .exps-tots-exp-right{
+        margin-left: 20px;
+    }
+    
+    .exps-chart{
+        margin-left: 0px;
+    }
+}

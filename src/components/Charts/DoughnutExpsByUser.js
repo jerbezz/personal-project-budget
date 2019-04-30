@@ -2,7 +2,7 @@ import React, {Component} from  'react'
 import {connect} from 'react-redux'
 import {getData} from './../../ducks/authReducer'
 import {getExpByUser} from './../../ducks/expReducer'
-import { Doughnut, Line,Pie } from 'react-chartjs-2';
+import { Doughnut} from 'react-chartjs-2';
 // import { Line, Bar, Radar, Doughnut, Pie, Polar, Bubble } from 'react-chartjs-2';
 
 
@@ -12,29 +12,29 @@ class DoughnutExpsByUser extends Component {
 
     componentDidMount(){
         this.props.getData()
-        this.props.getExpByUser()
+        // this.props.getExpByUser()
     }
 
     render(){
         let { expenses } = this.props.expense
-        // let { budgets } = this.props.budget
+        let { budgets } = this.props.budget
         // console.log(2, this.props.budget.budgets)
         // console.log(123, this.props.expense.expenses)
 
 
-        // let newBudget = budgets[0] ? (budgets[budgets.length - 1].budget_income) : ('Budget an Income Amount')
-        // let newExpenses = budgets[0] ? (budgets[budgets.length - 1].budget_expenses) : ('Budget an Expense Amount')
+        let newBudget = budgets[0] ? (budgets[budgets.length - 1].budget_income) : ('Budget an Income Amount')
+        let newExpenses = budgets[0] ? (budgets[budgets.length - 1].budget_expenses) : ('Budget an Expense Amount')
 
 
         // console.log(555, this.props.expense.expenses)
 
 
 
-        // let userExpTotal = expenses[0] ? (expenses.map(item => {
-        //     return Number(item.exp_amount)
-        // }).reduce((total, curr) => {
-        //     return total += curr
-        // })) : ('error')
+        let userExpTotal = expenses[0] ? (expenses.map(item => {
+            return Number(item.exp_amount)
+        }).reduce((total, curr) => {
+            return total += curr
+        })) : ('error')
 
         let miscTotal = expenses[0] ? (expenses.filter(item => {
             if (item.exp_category === 'Misc') {

@@ -3,7 +3,7 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getData } from './../../ducks/authReducer'
-import logo from './money-svgrepo-com.svg'
+// import logo from './money-svgrepo-com.svg'
 import logo1  from './money-svgrepo-com (1).svg'
 
 class Header extends Component {

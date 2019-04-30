@@ -41,3 +41,9 @@ body {
   color: #ffa500;
   text-decoration: none;
 }
+
+@media(max-width: 420px) {
+  .nav-items {
+    font-size: 12px;
+  }
+}

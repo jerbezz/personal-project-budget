@@ -57,11 +57,11 @@ class Expenses extends Component {
     }
 
     render() {
-        console.log(98876, this.props)
+        // console.log(98876, this.props)
         // console.log(1111, this.props.expense.expenses)
         // console.log(9999999, this.props.expense)
         let { expenses } = this.props.expense
-        let {tableJoin} = this.props.expense
+        let { tableJoin } = this.props.expense
 
         let theFirstName = tableJoin[0] ? (tableJoin[0].user_first_name) : ('Loading')
         let theLastName = tableJoin[0] ? (tableJoin[0].user_last_name) : ('Loading')
@@ -238,10 +238,10 @@ class Expenses extends Component {
                         })}
                     </div>
                     <div className='exps-rightside'>
-                    <div className='exps-rightside-header'>
-                        <h2>Total Expenses for</h2>
-                        <h2>{theFirstName} {theLastName}</h2>
-                    </div>
+                        <div className='exps-rightside-header'>
+                            <h2>Total Expenses for</h2>
+                            <h2>{theFirstName} {theLastName}</h2>
+                        </div>
                         <div className='exps-tots-exp'>
                             <div className='exps-tots-exp-left'>
                                 <p>Misc Total:</p>
@@ -273,7 +273,7 @@ class Expenses extends Component {
                             </div>
                         </div>
                         <div className='exps-chart'>
-                        <DoughnutExpsByUser />
+                            <DoughnutExpsByUser />
                         </div>
                     </div>
 

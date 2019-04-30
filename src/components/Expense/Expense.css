@@ -55,11 +55,18 @@
     width: 5;
     margin-right: 10px;
     
-
+    
 }
 
 .exp-edit-button:hover{
     background-color: #5ab7c2;
+}
+
+@media(max-width: 420px) {
+    .each-exp {
+        font-size: 9px;
+        
+    }
 }
 
 

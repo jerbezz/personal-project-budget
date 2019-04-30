@@ -70,7 +70,7 @@ class Budget extends Component {
         let newExpenses = budgets[0] ? (budgets[budgets.length - 1].budget_expenses) : ('Budget an Expense Amount')
 
 
-        console.log(555, this.props.expense.expenses)
+        // console.log(555, this.props.expense.expenses)
 
         let userExpTotal = monthExpenses[0] ? (monthExpenses.map(item => {
             return Number(item.exp_amount)
@@ -182,7 +182,7 @@ class Budget extends Component {
 
         // two decimals
         newDifferences = newDifferences.toFixed(2)
-        // newBudget = newBudget.toFixed(2)
+        
 
 
 
