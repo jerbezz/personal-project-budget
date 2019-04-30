@@ -36,6 +36,13 @@ class Expenses extends Component {
         await this.props.createExp(category, date, name, amount, memo)
         await this.props.getExpByUser()
         await this.props.joinTable()
+        await this.setState({
+            category: '',
+            date: '',
+            name: '',
+            amount: '',
+            memo: ''
+        })
     }
 
     handleChange = e => {
@@ -191,7 +198,7 @@ class Expenses extends Component {
                             <div className='exps-create-second-column'>
                                 <div><input name='date' value={this.state.date} onChange={this.handleChange} type='date'></input></div>
                                 <div><select name='category' value={this.state.category} onChange={this.handleChange}>
-                                    <option defaultValue value='Misc'>Select a Category</option>
+                                    <option defaultValue value=''>Select a Category</option>
                                     <option value="Misc">Misc</option>
                                     <option value="Meals">Meals</option>
                                     <option value="Shopping">Shopping</option>

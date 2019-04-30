@@ -67,6 +67,42 @@
         font-size: 9px;
         
     }
+
+    .exp-info-date {
+        margin-left: 5px;
+        width: 12%;
+    }
+
+    .exp-info-category{
+        display: none;
+        /* display: flex;
+        justify-content: flex-start;
+        width: 20%;
+        margin-left: -4px; */
+    }
+    
+    .exp-info-name{
+        display: flex;
+        justify-content: flex-start;
+        width: 25%; 
+        margin-left: 4px; 
+    }
+    
+    .exp-info-amount{
+        display: flex;
+        justify-content: flex-start;
+        width: 15%; 
+    }
+    
+    .exp-info-memo{
+        display: flex;
+        justify-content: flex-start;
+        width: 20%; 
+    }
+
+    .exp-info-button {
+        margin-right: 5px;
+    }
 }
 
 
