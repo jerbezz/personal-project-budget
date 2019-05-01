@@ -67,7 +67,7 @@ class Expense extends Component {
                         <option value="Insurance">Insurance</option>
                         <option value="Health Care">Health Care</option>
                         <option value="Travel">Travel</option>
-                    </select> />
+                    </select> 
                     <input name='name' value={this.state.name} onChange={this.handleChange} />
                     <input name='amount' value={this.state.amount} onChange={this.handleChange} />
                     <input name='memo' value={this.state.memo} onChange={this.handleChange} />
